@@ -1,4 +1,4 @@
-**PS: 还有少许bug，一些基本的代码肯定可以用了，一些比较复杂的框架还需要再修正一下，欢迎star，follow。**
+**PS: 还有少许bug，一些基本的代码肯定可以用了,欢迎star，follow。**
 
 Notices
 -------
@@ -16,4 +16,7 @@ A notice will open automatically and destroy itself after some time:
 
 |module |default | description |
 | ----- | ----- | ------ |
-|titles| ✔|Core module; contains most methods
+|titles| ✔|The title of the window ;The default upper right corner shows no
+|contents| ✔| The Contents of the window ;
+|position| ✔|topright,lowerleft,lowerright,none
+|colors| ✔|green,blue,red,yellow,black
