@@ -8,6 +8,7 @@
              this.init(opts);
          }
          Pop.prototype.init = function (opts) {
+             // 初始化数据
              var defaultOption = this.defaultOptions();
              this.titles = opts.titles || defaultOption.titles;
              this.contents = opts.contents || defaultOption.contents;
@@ -30,6 +31,7 @@
              key++;
              $("body").prepend($(_this.tpl));
          };
+         // 弹窗出现的位置
          Pop.prototype.direction = function () {
              var _this = this;
              _this.position === "topright" ? _this.topright() : _this.position === "lowerleft" ? _this.lowerleft() : _this.lowerright();
