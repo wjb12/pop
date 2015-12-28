@@ -79,7 +79,7 @@ animation: flipInX 1s .5s ease both; -webkit-animation: flipInX 1s .2s ease both
 	0%{-webkit-transform:scale(1)}
 	25%{-webkit-transform:scale(.95)}
 	50%{opacity:1;
-	-webkit-transform:scale(1.1)}
+	-webkit-transform:scale(1.05)}
 	100%{opacity:0;
 	-webkit-transform:scale(.3)}
 }
