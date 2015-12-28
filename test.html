@@ -14,11 +14,42 @@
 <script src="pop.js"></script>
 <script type="text/javascript">
 (function () {
+    var num =0;
+    var colorArr = ["green", "blue", "red", "yellow", "black"];
     $("#button1").on('click', function() {
+        num++;
+     if (num == 4) {
+         num = 0;
+     }
         $.pop({
                 titles: 'Opps!',
                 contents: 'hhahhah!',
                 position: 'topright', // topright|lowerleft|lowerright|none
+                colors:colorArr[num],
+         });
+    });
+    $("#button3").on('click', function() {
+        num++;
+     if (num == 4) {
+         num = 0;
+     }
+    $.pop({
+            titles: 'Opps!',
+            contents: 'hhahhah!',
+            position: 'lowerright', // topright|lowerleft|lowerright|none
+            colors:colorArr[num],
+     });
+    });
+    $("#button2").on('click', function() {
+        num++;
+     if (num == 4) {
+         num = 0;
+     }
+        $.pop({
+                titles: 'Opps!',
+                contents: 'hhahhahsddddddddd!',
+                position: 'lowerleft', // topright|lowerleft|lowerright|none
+                colors:colorArr[num],
          });
     });
 }());

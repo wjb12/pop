@@ -1,18 +1,18 @@
  var key = 0;
- var num = 0;
  $.extend({
      pop: function (opt) {
 
+
          function Pop() {
-             var opt = opt || {};
-             this.init(opt);
+             var opts = opt || {};
+             this.init(opts);
          }
-         Pop.prototype.init = function (opt) {
+         Pop.prototype.init = function (opts) {
              var defaultOption = this.defaultOptions();
-             this.titles = opt.titles || defaultOption.titles;
-             this.contents = opt.contents || defaultOption.contents;
-             this.position = opt.position || defaultOption.position;
-             this.colors = opt.colors || defaultOption.colors;
+             this.titles = opts.titles || defaultOption.titles;
+             this.contents = opts.contents || defaultOption.contents;
+             this.position = opts.position || defaultOption.position;
+             this.colors = opts.colors || defaultOption.colors;
              this.direction();
          };
          Pop.prototype.defaultOptions = function () {
@@ -27,58 +27,57 @@
          // 打开弹窗
          Pop.prototype.open = function () {
              var _this = this;
-             _this.tpl = '<div id="jBoxI' + key + '"class="jBox-wrapper animation jBox-Notice jBox-Default jBox-Notice-color jBox-Notice-' + this.colors + '"style="' + _this.styles + '"><div class ="jBox-container"><div class="jBox-content">' + this.contents + key + '</div></div></div>';
              key++;
              $("body").prepend($(_this.tpl));
-
-             var timer;
-             if ($(".animation").length) {
-                 var timer = setInterval(_this.close, 1000);
-             } else {
-                 clearInterval(timer);
-             }
          };
          Pop.prototype.direction = function () {
              var _this = this;
-             _this.dealColor();
              _this.position === "topright" ? _this.topright() : _this.position === "lowerleft" ? _this.lowerleft() : _this.lowerright();
 
          };
          Pop.prototype.topright = function () {
-             var thisBox = $(".jBox-wrapper").eq(key - 1);
-             var topMargin = 20;
-             var topOffeset = thisBox.offset.y || 0;
-             var Gettop = topMargin + topOffeset;
-             console.log(topMargin, topOffeset);
-             this.styles = "right:0;top:" + Gettop + 'px;';
-             console.log(this.styles);
+             $.each($(".animation"), function (index, el) {
+                 var h = $(el).height() + $(el).offset().top + 10;
+                 $(el).animate({
+                     'top': h,
+                 }, 100);
+
+             });
+             this.tpl = '<div id="jBoxI' + key + '"class="jBox-wrapper animation jBox-Notice jBox-Default jBox-Notice-color jBox-Notice-' + this.colors + '"style="right:0;"><div class ="jBox-container"><div class="jBox-content">' + this.contents + key + '</div></div></div>';
              this.open();
-             // alert(1);
+             if ($(".animation").length) {
+                 this.close("animation");
+             }
          };
          Pop.prototype.lowerleft = function () {
+             $.each($(".animationleft"), function (index, el) {
+                 var h = $(window).innerHeight() - $(el).offset().top + 20 + 'px';
+                 $(el).animate({
+                     'bottom': h,
+                 }, 300);
 
+             });
+             this.tpl = '<div id = "jBoxI' + key + '"class ="Box-wrapper animationleft jBox-Notice jBox-NoticeBorder jBox-hasTitle jBox-Notice-color jBox-Notice-' + this.colors + '"style="left: 20px;bottom: 20px;display: block; opacity: 1;"" ><div class ="jBox-container" ><div class ="jBox-title"><div>' + this.titles + '</div></div><div class = "jBox-content"style = "width: auto; height: auto;"> ' + this.contents + key + ' </div></div> </div>';
+             this.open();
+             if ($(".animationleft").length) {
+                 this.close("animationleft");
+             }
          };
          Pop.prototype.lowerright = function () {
+             this.tpl = '<div id = "jBoxI' + key + '"class ="jBox-wrapper animationright jBox-Notice jBox-Default jBox-Notice-color jBox-Notice-' + this.colors + '"style = "right: 20px; bottom: 20px; display: block; opacity: 1;z-index:' + key + '" ><div class ="jBox-container" ><div class ="jBox-title"><div>' + this.titles + '</div></div><div class = "jBox-content"style = "width: auto; height: auto;"> ' + this.contents + key + ' </div></div> </div>';
+             this.open();
+             if ($(".animationright").length) {
+                 this.close("animationright");
+             }
 
          };
 
-         // 处理颜色
-         Pop.prototype.dealColor = function () {
-             var _this = this;
-             var colorArr = ["green", "blue", "red", "yellow", "black"];
-             num++;
-             if (num == 4) {
-                 num = 0;
-             }
-             _this.colors = colorArr[num];
-
-
-         }
-
          // 关闭弹窗
-         Pop.prototype.close = function () {
-             $.each($(".animation"), function (index, el) {
-                 $("#boxWrap .animation").eq(index).addClass('animation-close');
+         Pop.prototype.close = function (name) {
+             $.each($("." + name), function (index, el) {
+                 setTimeout(function () {
+                     $(el).addClass(name + '-close')
+                 }, 3000);
              });
          };
 
