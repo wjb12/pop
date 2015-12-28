@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>pop测试</title>
+    <link rel="stylesheet" href="pop.css">
+
+</head>
+<body>
+<button id="button1">click Me!</button>
+<button id="button2">click Me Left!</button>
+<button id="button3">click Me RightBttom!</button>
+<script type="text/javascript" src="http://sandbox.runjs.cn/uploads/rs/372/dqydn76s/jquery-1.11.3.min.js"></script>
+<script src="pop.js"></script>
+<script type="text/javascript">
+(function () {
+    var num =0;
+    var colorArr = ["green", "blue", "red", "yellow", "black"];
+    $("#button1").on('click', function() {
+        $.pop({
+                contents: 'this you can write your  infos!',
+                position: 'topright', // topright|lowerleft|lowerright|none
+                colors:colorArr[num],
+         });
+    });
+    $("#button3").on('click', function() {
+    $.pop({
+            titles: 'this you can write your title!',
+            contents: 'this you can write your  infos',
+            position: 'lowerright', // topright|lowerleft|lowerright|none
+            colors:colorArr[num],
+     });
+    });
+    $("#button2").on('click', function() {
+        $.pop({
+                titles: 'this you can write your title!',
+                contents: 'this you can write your infos',
+                position: 'lowerleft', // topright|lowerleft|lowerright|none
+                colors:colorArr[num],
+         });
+    });
+}());
+</script>
+</body>
+</html>
