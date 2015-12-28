@@ -4,17 +4,30 @@
     <meta charset="UTF-8">
     <title>pop测试</title>
     <link rel="stylesheet" href="pop.css">
-
+    <style>
+        .wrap{
+          padding:10px;
+        }
+        .wrap button{
+              width: 200px;
+              height: 50px;
+              border: none;
+              background-color: #D0D0D0;
+              border-radius: 10px;
+        }
+    </style>
 </head>
 <body>
+<div class="wrap">
 <button id="button1">click Me!</button>
 <button id="button2">click Me Left!</button>
 <button id="button3">click Me RightBttom!</button>
+</div>
 <script type="text/javascript" src="http://sandbox.runjs.cn/uploads/rs/372/dqydn76s/jquery-1.11.3.min.js"></script>
 <script src="pop.js"></script>
 <script type="text/javascript">
 (function () {
-    var num =0;
+    var num =(Math.random());
     var colorArr = ["green", "blue", "red", "yellow", "black"];
     $("#button1").on('click', function() {
         $.pop({
