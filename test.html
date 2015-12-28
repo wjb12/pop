@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>pop编写</title>
+    <link rel="stylesheet" href="pop.css">
+
+</head>
+<body>
+<button id="button1">click Me!</button>
+<button id="button2">click Me Left!</button>
+<button id="button3">click Me RightBttom!</button>
+<script type="text/javascript" src="http://sandbox.runjs.cn/uploads/rs/372/dqydn76s/jquery-1.11.3.min.js"></script>
+<script src="pop.js"></script>
+<script type="text/javascript">
+(function () {
+    $("#button1").on('click', function() {
+        $.pop({
+                titles: 'Opps!',
+                contents: 'hhahhah!',
+                position: 'topright', // topright|lowerleft|lowerright|none
+         });
+    });
+}());
+</script>
+</body>
+</html>
