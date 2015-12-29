@@ -20,7 +20,7 @@
                      titles: 'title!',
                      contents: 'You have many options to position and animate your jBoxes!',
                      position: 'topright', // topright|lowerleft|lowerright|none
-                     colors: '' // green|blue|red|yellow|black
+                     colors: 'black' // green|blue|red|yellow|black
                  }
                  return o;
              };

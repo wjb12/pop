@@ -1,6 +1,6 @@
 **PS: 还有少许bug，一些基本的代码肯定可以用了,欢迎star，follow。**
 
-Notices
+Overview
 -------
 ```javascript
 A notice will open automatically and destroy itself after some time:
@@ -12,11 +12,11 @@ A notice will open automatically and destroy itself after some time:
      });
 
 ```
-#### 参数值
+#### options
 
-|module |default | description |
+|key |default | description |
 | ----- | ----- | ------ |
-|titles| ✔|The title of the window ;The default upper right corner shows no
-|contents| ✔| The Contents of the window ;
-|position| ✔|topright,lowerleft,lowerright,none
-|colors| ✔|green,blue,red,yellow,black
+|titles| |The title of the window ;The default upper right corner shows no
+|contents| | The Contents of the window ;
+|position| topright|topright,lowerleft,lowerright,none
+|colors| black|green,blue,red,yellow,black
