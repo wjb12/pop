@@ -15,7 +15,7 @@
 .jBox-Notice-blue .jBox-container { background: #2b91d9; background-image: linear-gradient(to bottom, #5abaff, #2b91d9); }
 .jBox-Notice-yellow .jBox-container { color: #744700; text-shadow: 0 1px 1px rgba(255, 255, 255, .6); background: #ffb11f; background-image: linear-gradient(to bottom, #ffd665, #ffb11f); }
 .animation { 
-animation: flipInX 1s .5s ease both; -webkit-animation: flipInX 1s .2s ease both; }
+animation: flipInX 1s .5s ease both; -webkit-animation: flipInX 1s .2s ease both; right:0;}
 @-webkit-keyframes flipInX {
 	0% { -webkit-transform: perspective(400px) rotateX(90deg); opacity: 0 }
 	40% { -webkit-transform: perspective(400px) rotateX(-10deg) }
@@ -54,6 +54,7 @@ animation: flipInX 1s .5s ease both; -webkit-animation: flipInX 1s .2s ease both
 }
 }
 .animationright{
+	right: 20px; bottom: 20px; display: block; opacity: 1;
 	-webkit-animation:tada 1s .2s ease both;
 	-moz-animation:tada 1s .2s ease both;
 }
@@ -96,8 +97,13 @@ animation: flipInX 1s .5s ease both; -webkit-animation: flipInX 1s .2s ease both
 
 
 .animationleft{
+left: 20px;
+bottom: 20px;
+display: block;
+ opacity: 1;
 -webkit-animation:fadeInUpBig .5s .1s ease both;
--moz-animation:fadeInUpBig .5s .1s ease both;}
+-moz-animation:fadeInUpBig .5s .1s ease both;
+}
 @-webkit-keyframes fadeInUpBig{
 	0%{opacity:0;
 	-webkit-transform:translateY(2000px)}
